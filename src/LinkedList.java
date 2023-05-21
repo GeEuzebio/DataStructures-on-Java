@@ -21,7 +21,7 @@ public class LinkedList<T> {
         return this.head.getData();
     }
 
-    public T tail(){
+    public T getTail(){
         return this.tail.getData();
     }
 
@@ -43,6 +43,7 @@ public class LinkedList<T> {
 
     public void insert(T data, int index){
         if(size < index || index < 0) System.out.println("Invalid index.\n");
+        else if(index == size) insert(data);
         else{
             Node<T> newNode = new Node<T>(data);
             Node<T> aux = this.head;
@@ -61,19 +62,53 @@ public class LinkedList<T> {
     }
 
     public T remove(){
-        Node<T> aux = this.head;
-        T data;
-        if(this.tail == this.head){
-            data = this.tail.getData();
-            this.tail = this.head = null;
-        }else{
-            while(aux.getNext() != this.tail) aux = aux.getNext();
-            data = aux.getNext().getData();
-            aux.setNext(this.tail.getNext());
-            this.tail = aux;
+        if(this.isEmpty()){
+            System.out.println("Empty list.\n");
+            return null;
         }
-        size--;
-        return data;
+        else{
+            Node<T> aux = this.head;
+            T data;
+            if(this.tail == this.head){
+                data = this.tail.getData();
+                this.tail = this.head = null;
+            }else{
+                while(aux.getNext() != this.tail) aux = aux.getNext();
+                data = aux.getNext().getData();
+                aux.setNext(this.tail.getNext());
+                this.tail = aux;
+            }
+            size--;
+            return data;
+        }
+    }
+
+    public T remove(int index){
+        if(size < index || index < 0){
+            System.out.println("Invalid index.\n");
+            return null;
+        }
+        else{
+            if(isEmpty()){
+                System.out.println("Empty list.\n");
+                return null;
+            }else{
+                Node<T> aux = this.head;
+                T data;
+                if(index == 0){
+                    data = this.head.getData();
+                    this.head = this.head.getNext();
+                }else{
+                    for(int i = 1; i < index; i++){
+                        aux = aux.getNext();
+                    }
+                    data = aux.getNext().getData();
+                    aux.setNext(aux.getNext().getNext());
+                }
+                size--;
+                return data;
+            }
+        }
     }
 
     @Override

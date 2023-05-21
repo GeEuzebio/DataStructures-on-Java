@@ -8,6 +8,7 @@ public class App {
         linkedList.insert(40);
 
         linkedList.insert(25, 2);
+        linkedList.remove(1);
 
         System.out.println(linkedList.toString());
     }
