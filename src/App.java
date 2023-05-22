@@ -4,6 +4,9 @@ public class App {
 
         doublyLinkedList.insert(10);
         doublyLinkedList.insert(20);
+        doublyLinkedList.insert(30);
+        doublyLinkedList.insert(40);
+        doublyLinkedList.insert(50);
 
         System.out.println("Printing head: " + doublyLinkedList.peek());
         System.out.println("Printing tail: " + doublyLinkedList.getTail());

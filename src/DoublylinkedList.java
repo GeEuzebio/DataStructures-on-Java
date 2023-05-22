@@ -38,7 +38,6 @@ public class DoublylinkedList<T> {
                 newNode.setNext(this.tail.getNext());
                 this.tail.setNext(newNode);
                 newNode.setPrev(this.tail);
-                newNode.getNext().setPrev(newNode);
                 this.tail = newNode;
             }
             this.size++;
@@ -72,7 +71,7 @@ public class DoublylinkedList<T> {
         String dll = "null <- " + this.head.toString();
         Node<T> aux = this.head.getNext();
         while(aux != this.tail){
-            dll += " <-> " + aux.toString() + " <-> ";
+            dll += " <-> " + aux.toString();
             aux = aux.getNext();
         }
         dll += " <-> " + this.tail.toString() + " -> null";
