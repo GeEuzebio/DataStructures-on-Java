@@ -1,10 +1,12 @@
 public class Node<T>{
     private T data;
     private Node<T> next;
+    private Node<T> prev;
 
     public Node(T data){
         this.data = data;
         this.next = null;
+        this.prev = null;
     }
 
     public T getData() {
@@ -21,6 +23,14 @@ public class Node<T>{
 
     public void setNext(Node<T> next) {
         this.next = next;
+    }
+
+    public Node<T> getPrev() {
+        return this.prev;
+    }
+
+    public void setPrev(Node<T> prev) {
+        this.prev = prev;
     }
 
     @Override
