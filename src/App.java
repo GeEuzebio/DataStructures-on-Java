@@ -9,5 +9,13 @@ public class App {
         System.out.println("Printing tail: " + doublyLinkedList.getTail());
 
         System.out.println(doublyLinkedList.toString());
+
+        doublyLinkedList.remove();
+
+        System.out.println(doublyLinkedList.toString());
+
+        doublyLinkedList.remove();
+
+        System.out.println(doublyLinkedList.toString());
     }
 }

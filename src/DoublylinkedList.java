@@ -51,13 +51,24 @@ public class DoublylinkedList<T> {
 
     public T remove(){
         if(this.isEmpty()) return null;
-        Node<T> aux = this.tail;
+        if(this.tail == this.head){
+            T data = this.head.getData();
+            this.tail = this.head = null;
+            size--;
+            return data;
+        }
+        Node<T> aux = this.head;
+        aux.getNext().setPrev(this.head.getPrev());
+        this.head = aux.getNext();
+        size--;
         return aux.getData();
     }
 
     @Override
     public String toString(){
         if(this.isEmpty()) return "Empty doubly linked list.\n";
+        if(size == 0) return "Empty doubly linked list.\n";
+        if(size == 1) return "null <- " + this.head.toString() + " -> null";
         String dll = "null <- " + this.head.toString();
         Node<T> aux = this.head.getNext();
         while(aux != this.tail){
