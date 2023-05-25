@@ -7,17 +7,7 @@ public class App {
         doublyLinkedList.insert(30);
         doublyLinkedList.insert(40);
         doublyLinkedList.insert(50);
-
-        System.out.println("Printing head: " + doublyLinkedList.peek());
-        System.out.println("Printing tail: " + doublyLinkedList.getTail());
-
-        System.out.println(doublyLinkedList.toString());
-
-        doublyLinkedList.remove();
-
-        System.out.println(doublyLinkedList.toString());
-
-        doublyLinkedList.remove();
+        doublyLinkedList.insert(25, 1);
 
         System.out.println(doublyLinkedList.toString());
     }

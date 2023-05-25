@@ -42,6 +42,7 @@ public class SinglyLinkedList<T> {
     }
 
     public void insert(T data, int index){
+        if(data == null) System.out.println("Data could not be null.\n");
         if(size < index || index < 0) System.out.println("Invalid index.\n");
         else if(index == size) insert(data);
         else{

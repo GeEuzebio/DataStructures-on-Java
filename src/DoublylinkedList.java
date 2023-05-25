@@ -45,7 +45,28 @@ public class DoublylinkedList<T> {
     }
 
     public void insert(T data, int index){
-
+        if(data == null) System.out.println("Data could not be null.\n");
+        if(size < index || index < 0) System.out.println("Invalid index.\n");
+        else if(index == size) insert(data);
+        else{
+            Node<T> newNode = new Node<T>(data);
+            Node<T> aux = this.head;
+            if(index == 0){
+                newNode.setNext(this.head);
+                newNode.setPrev(this.head.getPrev());
+                this.head.setPrev(newNode);
+                this.head = newNode;
+            }else{
+                for(int i = 0; i < index; i++){
+                    aux = aux.getNext();
+                }
+                aux.getPrev().setNext(newNode);
+                newNode.setNext(aux);
+                newNode.setPrev(aux.getPrev());
+                aux.setPrev(newNode);
+            }
+            size++;
+        }
     }
 
     public T remove(){
